@@ -1,0 +1,123 @@
+<Manager>:
+    ScreenOne:
+        id: screen_one
+
+    ScreenTwo:
+        id: screen_two
+
+    ScreenThree:
+        id: screen_three
+
+<ScreenOne>:
+    name: "screen1"
+    GridLayout:
+        size_hint: (.5, .5)
+        pos_hint: {"center_x":0.5,"center_y":0.6}
+        rows: 3
+        padding: 20
+
+        Label:
+            size_hint: (.2, .2)
+            text: "Please enter\nyour name:"
+            font_size: 30
+            halign: 'center'
+            valign: 'middle'
+
+        TextInput:
+            size_hint: (.2, .06)
+            cursor_blink: True
+            font_size: 20
+            multiline: False
+            id: player_name
+
+        Button:
+            size_hint: (.2, .08)
+            text: "Continue"
+            on_release:
+                root.manager.ids.screen_two.ids.final_playername.text = player_name.text
+                root.manager.current = "screen2"
+
+<ScreenTwo>:
+    name: "screen2"
+    GridLayout:
+        cols: 3
+        size: root.size
+        spacing: 10
+        padding: 10
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("TopLeft")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("TopMiddle")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("TopRight")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("CenterLeft")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("CenterMiddle")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("CenterRight")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("BottomLeft")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("BottomMiddle")
+
+        Button:
+            background_normal: ("blank.png")
+            # on_release: root.methodforbuttonpress ("BottomRight")
+
+        Button:
+            background_normal: ("x.png")
+
+        GridLayout:
+            rows: 2
+
+            Label:
+                text: "top label"
+
+            Label:
+                text: "bottom label"
+
+        Button:
+            background_normal: ("circle.png")
+
+        GridLayout:
+            rows: 2
+
+            Label:
+                text: "Player"
+                id: final_playername
+
+            Label:
+                text: "Score:"
+
+        Label:
+            text: ""
+
+        GridLayout:
+            rows: 2
+
+            Label:
+                text: "Computer"
+
+            Label:
+                text: "Score:"
+
+
+<ScreenThree>:
+    name: "screen3"

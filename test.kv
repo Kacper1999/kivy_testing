@@ -1,0 +1,73 @@
+<Manager>:
+    Screen1:
+        id: screen1
+
+    Screen2:
+        id: screen2
+
+<Screen1>:
+    name: "screen1"
+    GridLayout:
+        size_hint: (0.5, 0.5)
+        pos_hint: {"center_x":0.5, "center_y": 0.6}
+        rows: 5
+        padding: 20
+
+        Label:
+            size_hint: (0.2, 0.2)
+            text: "Patient name"
+            font_size: 30
+            halign: "center"
+            valign: "middle"
+
+        TextInput:
+            size_hint: (0.2, 0.06)
+            cursor_blink: True
+            font_size: 20
+            multiline: False
+            id: patient_name
+
+
+        Label:
+            size_hint: (0.2, 0.2)
+            text: "Patient surname"
+            font_size: 30
+            halign: "center"
+            valign: "middle"
+
+        TextInput:
+            size_hint: (0.2, 0.06)
+            cursor_blink: True
+            font_size: 20
+            multiline: False
+            id: patient_surname
+
+        Button:
+            size_hint: (0.2, 0.08)
+            text: "Save"
+            on_release:
+                root.manager.update()
+                root.manager.current = "screen2"
+
+<Screen2>:
+    name: "screen2"
+
+    GridLayout:
+        size_hint: (0.5, 0.5)
+        pos_hint: {"center_x":0.5, "center_y": 0.6}
+        rows: 2
+        padding: 20
+
+        Label:
+            text: "Patient name"
+            font_size: 30
+            halign: "center"
+            valign: "middle"
+            id: patient_name
+
+        Label:
+            text: "Patient surname"
+            font_size: 30
+            halign: "center"
+            valign: "middle"
+            id: patient_surname
